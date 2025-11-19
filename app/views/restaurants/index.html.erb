@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="grid grid-cols-3 gap-4">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card bg-base-100 w-96 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title"><%= restaurant.name %></h2>
+          <p>Specialist of the <strong> <%= restaurant.category %></strong> food !</p>
+          <div class="card-actions justify-end">
+            <%= link_to "View more", restaurant_path(restaurant.id) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

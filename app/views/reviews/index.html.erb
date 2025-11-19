@@ -1,0 +1,25 @@
+<div class="container justify-center flex">
+  <div class="card card-border bg-base-100 w-96">
+    <div class="card-body">
+      <h2 class="card-title">Reviews of <%=  @restaurant.name %></h2>
+      <div class="card-body shadow rounded-4xl">
+        <div class="carousel w-full">
+          <% @reviews.each do |review| %>
+          <div id="item<%= review.id %>" class="carousel-item w-full">
+            <p><%= review.content %> <%= review.rating %>/5</p>
+          </div>
+          <% end %>
+        </div>
+
+        <div class="flex w-full justify-center gap-2 py-2">
+          <% @reviews.each_with_index do |review, index| %>
+          <a href="#item<%= review.id %>" class="btn btn-xs"><%= index %></a>
+          <% end %>
+        </div>
+        <div class="flex justify-items-end">
+          <%= link_to "back to #{@restaurant.name}" , restaurant_path(@restaurant.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card lg:card-side bg-base-100 shadow-sm">
+    <figure>
+      <img
+        src= <%= @restaurant.image_url %>
+        alt="Album" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title"><%= @restaurant.name %></h2>
+      <ul>
+        <li><%= @restaurant.category %>'s restaurant</li>
+        <li>At <%= @restaurant.address %></li>
+        <li>Phone number : <%= @restaurant.phone_number %></li>
+      </ul>
+      <div class="card-actions justify-evenly">
+        <%# <button class="btn btn-primary">Listen</button> %>
+        <%= link_to "All reviews", restaurant_reviews_path(@restaurant) %>
+        <%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %>
+      </div>
+      <div class="flex justify-center">
+        <div class="shadow rounded-3xl p-2 w-40">
+
+          <p>Best Rating : <%= @restaurant.reviews.order(:rating).first.content %></p>
+        </div>
+      </div>
+      <div class="text-end">
+       <%= link_to "Back to restaurants", restaurants_path %>
+      </div>
+    </div>
+  </div>
+</div>
